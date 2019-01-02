@@ -9,12 +9,12 @@ version = "0.1.0"
 with open('README.rst') as f:
     long_description = f.read()
 
-setup(name='ofxstatement-be-ing',
+setup(name='ofxstatement-de-ing',
       version=version,
-      author="Bernardo Bandos",
-      author_email="@hotmail.com",
-      url="https://github.com/jbbandos/ofxstatement-be-ing",
-      description=("OFXStatement plugin for ING (Belgium)"),
+      author="Faha",
+      author_email="dev-faha@t-online.de",
+      url="https://github.com/fabolhak/ofxstatement-de-ing",
+      description=("OFXStatement plugin for ING (Germany / Deutschland)"),
       long_description=long_description,
       license="GPLv3",
       keywords=["ofx", "banking", "statement"],
@@ -32,7 +32,7 @@ setup(name='ofxstatement-be-ing',
       namespace_packages=["ofxstatement", "ofxstatement.plugins"],
       entry_points={
           'ofxstatement':
-          ['ingbe = ofxstatement.plugins.ingbe:IngBePlugin']
+          ['ingde = ofxstatement.plugins.ingde:IngDePlugin']
           },
       install_requires=['ofxstatement'],
       include_package_data=True,

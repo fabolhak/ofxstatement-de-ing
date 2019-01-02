@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: ofxstatement",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/.venv/bin/ofxstatement",
+            "console": "integratedTerminal",
+            "args": ["convert", "-t", "ingde", "${workspaceFolder}/test/test.csv", "${workspaceFolder}/test/test.ofx"]
+        }
+    ]
+}
