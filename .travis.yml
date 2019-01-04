@@ -12,4 +12,5 @@ install:
   - make
 
 script: 
+  - source .venv/bin/activate
   - ofxstatement convert -t ingde test/input.csv test/output.ofx
