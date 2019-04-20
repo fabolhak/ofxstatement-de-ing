@@ -6,7 +6,7 @@ from distutils.core import setup
 
 version = "0.1.0"
 
-with open('README.rst') as f:
+with open('ReadMe.md') as f:
     long_description = f.read()
 
 setup(name='ofxstatement-de-ing',
