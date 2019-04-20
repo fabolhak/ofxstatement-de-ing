@@ -10,4 +10,4 @@ eggs
 .project
 .pydevproject
 *.sublime*
-test/test.ofx
+test/out.ofx
