@@ -12,4 +12,5 @@ install:
   - make
 
 script:
-  - source .venv/bin/activate && ofxstatement convert -t ingde test/test_with_saldo.csv test/test.ofx
+  - source .venv/bin/activate
+  - ofxstatement convert -t ingde test/test_with_saldo.csv test/test.ofx
