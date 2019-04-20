@@ -25,7 +25,7 @@ class IngDeParser(CsvStatementParser):
         'date':       1,
         'payee':      2,
         'memo':       4,
-        'amount':     5
+        'amount':     7
     }
 
     reader = None
@@ -48,13 +48,15 @@ class IngDeParser(CsvStatementParser):
         account_id = self.reader.__next__()[1]     # account id = IBAN
         germantype = self.reader.__next__()[1]     # account type (german name)
         bank_id    = self.reader.__next__()[1]     # bank id
-
-        # skip next lines
-        self.reader = itertools.islice(self.reader, 7, None)
+        customer   = self.reader.__next__()[1]     # customer name
+        timespan   = self.reader.__next__()[1]     # timespan
 
         # check wether saldo is included in csv file
-        if "Saldo" != self.reader.__next__()[5]:
+        if "Saldo" != self.reader.__next__()[0]:
             raise ValueError('Please export CSV with Saldo!')
+
+        # skip another 6 lines
+        self.reader = itertools.islice(self.reader, 6, None)
 
         # parse each line
         stmt = super(IngDeParser, self).parse()
@@ -94,7 +96,7 @@ class IngDeParser(CsvStatementParser):
             raise ValueError('Different currencies are not supported!')
 
         # fix german number format
-        line[5] = line[5].replace(".","").replace(",",".") 
+        line[7] = line[7].replace(".","").replace(",",".") 
         
         # parse line elements using the mappings defined above (call parse_record() from parent class)
         stmtline = super(IngDeParser, self).parse_record(line)
