@@ -52,8 +52,11 @@ class IngDeParser(CsvStatementParser):
         timespan   = self.reader.__next__()[1]     # timespan
 
         # check wether saldo is included in csv file
-        if "Saldo" != self.reader.__next__()[0]:
-            raise ValueError('Please export CSV with Saldo!')
+        try:
+            saldo = self.reader.__next__()[1]      # initial saldo
+        except IndexError:
+            raise RuntimeError('Please export CSV with Saldo!')
+
 
         # skip another 6 lines
         self.reader = itertools.islice(self.reader, 6, None)

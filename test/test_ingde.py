@@ -19,7 +19,7 @@ class TestTestFiles(unittest.TestCase):
             ["INFO: Conversion completed: %s" % './test/test_with_saldo.csv'])
 
     def test_without_saldo(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(RuntimeError):
             tool.run(['convert', '--type=ingde', './test/test_without_saldo.csv', './test/out.ofx'])
 
     def setUp(self):
