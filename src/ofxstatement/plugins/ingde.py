@@ -1,4 +1,5 @@
 import csv
+import sys
 import itertools
 
 from ofxstatement import statement
@@ -28,7 +29,6 @@ class IngDeParser(CsvStatementParser):
     }
 
     reader = None
-    id = 0
     currency = None
     
     def parse(self):
@@ -83,11 +83,14 @@ class IngDeParser(CsvStatementParser):
     def parse_record(self, line):
         """Parse given transaction line and return StatementLine object
         """
+        saldo =          str(line[5])
+        currency_saldo = str(line[6])
+        currency_trans = str(line[8])
 
         # check currency
         if None == self.currency:
-            self.currency = line[8]
-        elif self.currency != line[8] and self.currency != line[6]:
+            self.currency = currency_saldo
+        elif self.currency != currency_trans and self.currency != currency_saldo:
             raise ValueError('Different currencies are not supported!')
 
         # fix german number format
@@ -100,7 +103,12 @@ class IngDeParser(CsvStatementParser):
         stmtline.trntype = 'DEBIT' if stmtline.amount < 0 else 'CREDIT'
 
         # generate id for statement
-        stmtline.id = str(self.id)
-        self.id = self.id + 1
+        id_date = stmtline.date.strftime('%Y%m%d')
+
+        # create a hash from payee, memo, amount, saldo
+        id_hash = str(hash(stmtline.payee + stmtline.memo + str(stmtline.amount) + saldo) % ((sys.maxsize + 1) * 2))
+
+        # final id is constructed from date and hash (so hopefully this is unique)
+        stmtline.id = id_date + id_hash
 
         return stmtline
