@@ -11,5 +11,5 @@ python:
 install:
   - make
 
-script: 
-  - source .venv/bin/activate && ofxstatement convert -t ingde test/test.csv test/test.ofx
+script:
+  - source .venv/bin/activate && ofxstatement convert -t ingde test/test_with_saldo.csv test/test.ofx

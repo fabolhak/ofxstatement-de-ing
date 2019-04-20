@@ -50,7 +50,11 @@ class IngDeParser(CsvStatementParser):
         bank_id    = self.reader.__next__()[1]     # bank id
 
         # skip next lines
-        self.reader = itertools.islice(self.reader, 8, None)
+        self.reader = itertools.islice(self.reader, 7, None)
+
+        # check wether saldo is included in csv file
+        if "Saldo" != self.reader.__next__()[5]:
+            raise ValueError('Please export CSV with Saldo!')
 
         # parse each line
         stmt = super(IngDeParser, self).parse()
@@ -82,15 +86,21 @@ class IngDeParser(CsvStatementParser):
 
         # check currency
         if None == self.currency:
-            self.currency = line[6]
-        elif self.currency != line[6]:
+            self.currency = line[8]
+        elif self.currency != line[8] and self.currency != line[6]:
             raise ValueError('Different currencies are not supported!')
 
-        line[5] = line[5].replace(".","").replace(",",".") # fix german number format
+        # fix german number format
+        line[5] = line[5].replace(".","").replace(",",".") 
         
+        # parse line elements using the mappings defined above (call parse_record() from parent class)
         stmtline = super(IngDeParser, self).parse_record(line)
+
+        # check if debit or credit
         stmtline.trntype = 'DEBIT' if stmtline.amount < 0 else 'CREDIT'
+
+        # generate id for statement
         stmtline.id = str(self.id)
-        
         self.id = self.id + 1
+
         return stmtline
