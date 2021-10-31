@@ -14,5 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
+    - name: Install dependencies
+      run: python -m pip install virtualenv  
+
     - name: Run Tests
       run: make test
