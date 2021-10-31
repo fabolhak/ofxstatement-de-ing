@@ -1,7 +1,5 @@
 # ING DiBa Germany plugin for ofxstatement
 
-[![Build Status](https://travis-ci.org/fabolhak/ofxstatement-de-ing.svg?branch=master)](https://travis-ci.org/fabolhak/ofxstatement-de-ing)
-
 This project provides a custom plugin for ofxstatement for ING (Germany / Deutschland).
 It is based on the work done by [jbbandos](https://github.com/jbbandos/ofxstatement-be-ing).
 
