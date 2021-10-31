@@ -1,0 +1,24 @@
+Umsatzanzeige;Datei erstellt am: 28.12.2018 16:57
+;Letztes Update: aktuell
+
+IBAN;DE12 3456 7890 1234 5678 90
+Kontoname;Girokonto
+Bank;ING
+Kunde;Max Mustermann
+Zeitraum;28.12.2017 - 28.12.2018
+Saldo;150,00;EUR
+
+Sortierung;Datum absteigend
+
+In der CSV-Datei finden Sie alle bereits gebuchten Umsätze. Die vorgemerkten Umsätze werden nicht aufgenommen, auch wenn sie in Ihrem Internetbanking angezeigt werden.
+
+Buchung;Valuta;Auftraggeber/Empfänger;Buchungstext;Verwendungszweck;Saldo;Währung;Betrag;Währung
+28.12.2018;28.12.2018;PayDude (Europe) S.a.r.l. et Cie., S .C.A.;Lastschrift;PP.1234.PP . Blumen Berther;150,00;EUR;-5,50;EUR
+28.12.2018;28.12.2018;Karl Karlsen;Gutschrift aus Dauerauftrag;Monatliche Ueberweisung;155,5;EUR;50,00;EUR
+27.12.2018;27.12.2018;INFOPAY FISCAL SERVICES GMBH;Lastschrift;OnlineTicket Neustadter Verkehr;105,50;EUR;-2,90;EUR
+21.12.2018;27.12.2018;EBUCHT GMBH;Lastschrift;Kauf ihreres Dreirades;108,40;EUR;-1,50;EUR
+15.12.2018;21.12.2018;Peter Petersen;Überweisung;Schulden;109,90;EUR;-60,00;EUR
+10.12.2018;28.12.2018;VISA Hotel XY;Lastschrift;Übernachtung in Neuenhausen am 21.05.2017;169,90;EUR;-150,00;EUR
+09.12.2018;10.12.2018;INFOPAY FISCAL SERVICES GMBH;Lastschrift;OnlineTicket Neustadter Verkehr;319,9;EUR;-2,90;EUR
+09.12.2018;10.12.2018;INFOPAY FISCAL SERVICES GMBH;Lastschrift;OnlineTicket Neustadter Verkehr;322,8;EUR;-2,90;EUR
+09.12.2018;10.12.2018;INFOPAY FISCAL SERVICES GMBH;Lastschrift;OnlineTicket Neustadter Verkehr;325,7;EUR;-2,90;EUR

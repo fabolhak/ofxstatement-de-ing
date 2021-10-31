@@ -34,7 +34,6 @@ setup(name='ofxstatement-de-ing',
           'ofxstatement':
           ['ingde = ofxstatement.plugins.ingde:IngDePlugin']
           },
-      install_requires=['ofxstatement'],
       extras_require={'test': ["mock", "pytest", "pytest-cov"]},
       tests_require=["mock"],
       include_package_data=True,

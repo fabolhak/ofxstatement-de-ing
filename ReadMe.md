@@ -36,6 +36,12 @@ Method 2: Install system-wide via [pip](https://packaging.python.org/guides/tool
 sudo pip install -e .
 ```
 
+## Test
+
+```bash
+make test
+```
+
 ## Usage
 
 Method 1: Run in virtual environment:
@@ -50,3 +56,7 @@ Method 2: Run system-wide:
 ```bash
 ofxstatement convert -t ingde input.csv output.ofx
 ```
+
+## Credits
+
+Some parts of the code are stolen from: https://github.com/siddhantgoel/beancount-ing-diba

@@ -5,22 +5,32 @@ import io
 import logging
 import logging.handlers
 import shutil
-import mock
 
-from ofxstatement import tool, statement, configuration, parser, exceptions
+from ofxstatement import tool
 
 class TestTestFiles(unittest.TestCase):
 
-    def test_with_saldo(self):
-        ret = tool.run(['convert', '--type=ingde', './test/test_with_saldo.csv', './test/out.ofx'])
+    def test_with_saldo_1(self):
+        ret = tool.run(['convert', '--type=ingde', './test/test_with_saldo_1.csv', './test/out.ofx'])
         self.assertEqual(ret, 0)
         self.assertEqual(
             self.log.getvalue().splitlines(),
-            ["INFO: Conversion completed: %s" % './test/test_with_saldo.csv'])
+            ["INFO: Conversion completed: %s" % './test/test_with_saldo_1.csv'])
 
-    def test_without_saldo(self):
+    def test_with_saldo_2(self):
+        ret = tool.run(['convert', '--type=ingde', './test/test_with_saldo_2.csv', './test/out.ofx'])
+        self.assertEqual(ret, 0)
+        self.assertEqual(
+            self.log.getvalue().splitlines(),
+            ["INFO: Conversion completed: %s" % './test/test_with_saldo_2.csv'])
+
+    def test_without_saldo_1(self):
         with self.assertRaises(RuntimeError):
-            tool.run(['convert', '--type=ingde', './test/test_without_saldo.csv', './test/out.ofx'])
+            tool.run(['convert', '--type=ingde', './test/test_without_saldo_1.csv', './test/out.ofx'])
+
+    def test_without_saldo_2(self):
+        with self.assertRaises(RuntimeError):
+            tool.run(['convert', '--type=ingde', './test/test_without_saldo_2.csv', './test/out.ofx'])
 
     def setUp(self):
         self.tmpdir = tempfile.mkdtemp(suffix='ofxstatement')
