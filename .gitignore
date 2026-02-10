@@ -11,3 +11,4 @@ eggs
 .pydevproject
 *.sublime*
 test/out.ofx
+src/ofxstatement/*

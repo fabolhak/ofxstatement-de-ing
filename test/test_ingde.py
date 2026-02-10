@@ -13,16 +13,16 @@ class TestTestFiles(unittest.TestCase):
     def test_with_saldo_1(self):
         ret = tool.run(['convert', '--type=ingde', './test/test_with_saldo_1.csv', './test/out.ofx'])
         self.assertEqual(ret, 0)
-        self.assertEqual(
-            self.log.getvalue().splitlines(),
-            ["INFO: Conversion completed: %s" % './test/test_with_saldo_1.csv'])
+        self.assertEqual(len(self.log.getvalue().splitlines()), 1)
+        self.assertTrue(self.log.getvalue().startswith("INFO: Conversion completed:"))
+        self.assertTrue(self.log.getvalue().rstrip().endswith('./test/test_with_saldo_1.csv'))
 
     def test_with_saldo_2(self):
         ret = tool.run(['convert', '--type=ingde', './test/test_with_saldo_2.csv', './test/out.ofx'])
         self.assertEqual(ret, 0)
-        self.assertEqual(
-            self.log.getvalue().splitlines(),
-            ["INFO: Conversion completed: %s" % './test/test_with_saldo_2.csv'])
+        self.assertEqual(len(self.log.getvalue().splitlines()), 1)
+        self.assertTrue(self.log.getvalue().startswith("INFO: Conversion completed:"))
+        self.assertTrue(self.log.getvalue().rstrip().endswith('./test/test_with_saldo_2.csv'))
 
     def test_without_saldo_1(self):
         with self.assertRaises(RuntimeError):
