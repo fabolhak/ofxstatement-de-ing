@@ -100,7 +100,7 @@ class IngDeParser(CsvStatementParser):
                             self.mappings['date_user'] = i
 
                         # date transaction was posted to account
-                        if column == 'Valuta':
+                        if column == 'Wertstellungsdatum':
                             self.mappings['date'] = i
 
                         # payee

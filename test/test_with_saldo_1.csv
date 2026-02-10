@@ -12,7 +12,7 @@ Sortierung;Datum absteigend
 
 In der CSV-Datei finden Sie alle bereits gebuchten Umsätze. Die vorgemerkten Umsätze werden nicht aufgenommen, auch wenn sie in Ihrem Internetbanking angezeigt werden.
 
-Buchung;Valuta;Auftraggeber/Empfänger;Buchungstext;Verwendungszweck;Saldo;Währung;Betrag;Währung
+Buchung;Wertstellungsdatum;Auftraggeber/Empfänger;Buchungstext;Verwendungszweck;Saldo;Währung;Betrag;Währung
 28.12.2018;28.12.2018;PayDude (Europe) S.a.r.l. et Cie., S .C.A.;Lastschrift;PP.1234.PP . Blumen Berther;150,00;EUR;-5,50;EUR
 28.12.2018;28.12.2018;Karl Karlsen;Gutschrift aus Dauerauftrag;Monatliche Ueberweisung;155,5;EUR;50,00;EUR
 27.12.2018;27.12.2018;INFOPAY FISCAL SERVICES GMBH;Lastschrift;OnlineTicket Neustadter Verkehr;105,50;EUR;-2,90;EUR
